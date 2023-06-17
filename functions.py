@@ -14,6 +14,16 @@ def write_todos(todos_arg, filepath=FILEPATH):
         file.writelines(todos_arg)
 
 
+def get_format(user_input_local):
+    """Capitalizes  first letter of first word in user's input"""
+    input_list = user_input_local.split(" ")
+    cap = input_list[0].title()
+    input_list[0] = cap
+    formatted_input = " ".join(input_list)
+    return formatted_input
+
+
 if __name__ == "__main__":
-    print('hello')
-    print(get_todos())
+    user_input = "surfing every day"
+    formatted = get_format(user_input)
+    print(formatted)

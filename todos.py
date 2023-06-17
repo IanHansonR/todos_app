@@ -23,13 +23,16 @@ while True:
     match event:
         case "Add":
             todos = functions.get_todos()
-            new_todo = values['todo'] + "\n"
+            new_todo = values['todo']
+            new_todo = functions.get_format(new_todo) + "\n"
             todos.append(new_todo)
             functions.write_todos(todos)
             window['todos'].update(values=todos)
+
         case "Edit":
             todo_to_edit = values["todos"][0]
-            new_todo = values["todo"] + "\n"
+            new_todo = values["todo"]
+            new_todo = functions.get_format(new_todo)
 
             todos = functions.get_todos()
             index = todos.index(todo_to_edit)
