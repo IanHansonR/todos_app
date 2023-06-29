@@ -30,6 +30,8 @@ while True:
             window['todos'].update(values=todos)
 
         case "Edit":
+            if IndexError:
+                continue
             todo_to_edit = values["todos"][0]
             new_todo = values["todo"]
             new_todo = functions.get_format(new_todo)
@@ -39,6 +41,7 @@ while True:
             todos[index] = new_todo
             functions.write_todos(todos)
             window['todos']. update(values=todos)
+
         case "Complete":
             todo_completed = values['todos'][0]
             todos = functions.get_todos()
@@ -47,8 +50,6 @@ while True:
             functions.write_todos(todos)
             window['todos'].update(values=todos)
             print(todo_completed)
-            print(index)
-            print('hello')
 
         case 'todos':
             window['todo'].update(value=values['todos'][0])
